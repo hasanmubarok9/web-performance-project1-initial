@@ -65,12 +65,31 @@ function displayProducts(products) {
 
 }
 
+// console.log("mungkin semua kan berbeda\n");
 
+window.onload = () => {
 
-loadProducts();
+// 	console.log("andaikan dulu\n");
+	let status = 'idle';
+	 let productSection = document.querySelector("#all-products");
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+	window.onscroll = () => {
+		let position = productSection.getBoundingClientRect().top - (window.scrollY + window.innerHeight);
+		// console.log("nilai position: ", position);
+		// console.log(window.scrollY + window.innerHeight);
+		console.log("nilai position: ", position);
+		if (status == 'idle' && position <= 0) {
+			status = 'fetching';
+			loadProducts();
+
+	 for (let i = 0; i < 10000000; i++) {
+     const temp = Math.sqrt(i) * Math.sqrt(i);
+	 }
+		}
+
+	// Simulate heavy operation. It could be a complex price calculation.
+		}
+
 }
+
 
